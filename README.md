@@ -4,13 +4,18 @@ This project uses Quarkus, the Supersonic Subatomic Java Framework.
 
 If you want to learn more about Quarkus, please visit its website: https://quarkus.io/ .
 
+## Build a docker image
+```
+docker build -t faskan/quarkus-helloworld .
+```
+## Build a docker image
+```
+docker run -p 8080:8080 faskan/quarkus-helloworld
+```
 ## Running the application in dev mode
-
-You can run your application in dev mode that enables live coding using:
 ```
 ./mvnw quarkus:dev
 ```
-
 ## Packaging and running the application
 
 The application can be packaged using `./mvnw package`.
