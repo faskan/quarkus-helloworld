@@ -9,4 +9,5 @@ COPY scripts/run-java.sh /run-java.sh
 COPY target/lib/* /lib/
 COPY target/*-runner.jar app.jar
 
+EXPOSE 8080
 ENTRYPOINT [ "/run-java.sh" ]
