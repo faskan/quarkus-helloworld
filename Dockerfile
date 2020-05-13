@@ -9,5 +9,6 @@ COPY scripts/run-java.sh /run-java.sh
 COPY target/lib/* /lib/
 COPY target/*-runner.jar app.jar
 
+RUN chmod 775 /run-java.sh
 EXPOSE 8080
 ENTRYPOINT [ "/run-java.sh" ]
