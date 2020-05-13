@@ -11,7 +11,7 @@ variables:
   dockerRegistryServiceConnection: 'fdd26932-ec3a-45dd-bf8b-57a831bc0008'
   imageRepository: 'quarkushello-native'
   containerRegistry: 'faskanquarkusregistry.azurecr.io'
-  dockerfilePath: '$(Build.SourcesDirectory)/src/main/docker/Dockerfile.native'
+  dockerfilePath: '$(Build.SourcesDirectory)/Dockerfile.native'
   tag: 'latest'
   
   # Agent VM image name
