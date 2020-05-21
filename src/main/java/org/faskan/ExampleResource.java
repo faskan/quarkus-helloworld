@@ -1,16 +1,22 @@
 package org.faskan;
 
-import javax.ws.rs.GET;
+import javax.inject.Inject;
+import javax.ws.rs.Consumes;
+import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
-import javax.ws.rs.core.MediaType;
+
+import static javax.ws.rs.core.MediaType.APPLICATION_JSON;
 
 @Path("/hello")
+@Produces(APPLICATION_JSON)
+@Consumes(APPLICATION_JSON)
 public class ExampleResource {
 
-    @GET
-    @Produces(MediaType.TEXT_PLAIN)
-    public String hello() {
-        return "hello azure";
+    @Inject
+    MessageSaveService messageSaveService;
+    @POST
+    public void newMessage(Message message) {
+        messageSaveService.saveMessage(message);
     }
 }
