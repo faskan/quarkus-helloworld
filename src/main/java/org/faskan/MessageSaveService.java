@@ -6,27 +6,18 @@ import javax.enterprise.context.ApplicationScoped;
 public class MessageSaveService {
 
     public void saveMessage(Message message) {
-        personMessage(message).persistOrUpdate();
+        individualMessage(message).persist();
     }
 
-    private PersonMessage personMessage(Message message) {
-        PersonMessage personMessage = new PersonMessage();
-        personMessage.id = message.receiver;
-        personMessage.messageFromPeople.add(messageFromPerson(message));
-        return personMessage;
-    }
-
-    private MessageFromPerson messageFromPerson(Message message) {
-        MessageFromPerson messageFromPerson = new MessageFromPerson();
-        messageFromPerson.personId = message.sender;
-        messageFromPerson.messageList.add(getIndividualMessage(message));
-        return messageFromPerson;
-    }
-
-    private IndividualMessage getIndividualMessage(Message message) {
+    private IndividualMessage individualMessage(Message message) {
         IndividualMessage individualMessage = new IndividualMessage();
+        individualMessage.sender = message.sender;
+        individualMessage.receiver = message.receiver;
         individualMessage.message = message.message;
+        individualMessage.status = Status.SENT;
         return individualMessage;
     }
+
+
 }
 
